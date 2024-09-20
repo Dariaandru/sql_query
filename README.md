@@ -310,7 +310,7 @@ SELECT * FROM positions
 | студент    | id                 | только числа, авто инкремент     |
 |            |имя                 |  строка не более 50 символов     |
 |            | фамилия            |строка не более 50 символов       |
-|            | дата роджения      |формат даты: ГГГГ-ММ-ДД           |
+|            | дата рождения      |формат даты: ГГГГ-ММ-ДД           |
 |            | дата зачисления    |формат даты: ГГГГ-ММ-ДД           |
 |            | специальность      |строка не более 50 символов       |
 |            | картинка           |двоичные данные                   |
@@ -421,3 +421,126 @@ SELECT * FROM enrollment
 ```
 ![](./images/постгрес_зачисление.png)
 
+## Фитнес-центр
+
+### Таблица с объектами и атрибутами
+
+|Таблица     | Атрибуты           | Ограничения                      |
+|------------|--------------------|----------------------------------|
+| клиент     | id                 | только числа, авто инкремент     |
+|            |имя                 |  строка не более 50 символов     |
+|            | фамилия            |строка не более 50 символов       |
+|            | дата рождения      |формат даты: ГГГГ-ММ-ДД           |
+|            | дата членства      |формат даты: ГГГГ-ММ-ДД           |
+|            | тип абонемента     |строка не более 50 символов       |
+|            | картинка           |двоичные данные                   |
+||          ||                    ||                                ||
+| тренировка | id                 | только числа, авто инкремент     |
+|            | название           |  строка не более 50 символов     |
+|            | описание           |строка не более 200 символов      |
+|            | длительность       |формат даты: ГГГГ-ММ-ДД ЧЧ:ММ:СС  |
+|            | сложность          | число больше чем 0               |
+|            | материалы          | текст                            |
+||          ||                    ||                                ||
+| посещения  | id                 | только числа, авто инкремент     |
+|            | id клиента         |  строка не более 50 символов     |
+|            | id тренировки      |строка не более 200 символов      |
+|            | дата и время       |формат даты: ГГГГ-ММ-ДД ЧЧ:ММ:СС  |
+||          ||                    ||                                ||
+
+### ER-диаграмма фитнес-центра
+
+![](./images/фитнес-центр.png)
+
+Посещения не являются сущностью, это соответствие клиента и тренировки, так как между ними связь много ко многому.
+
+Клиент может существовать сам по себе, а тренировка без клиентов не может.
+
+### SQL-запросы
+
+#### Таблица с клиентами
+
+1. Создание таблицы для клиентов
+
+```sql
+CREATE TABLE clients (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    surname VARCHAR(50),
+    birth date,
+    member date,
+    subscription VARCHAR(50)
+);
+```
+2. Добавление экземпляров и просмотр результата
+
+```sql
+INSERT INTO clients (name, surname, birth, member, subscription) VALUES ('Ivan', 'Ivanov', '1990-01-01', '2020-09-01', 'basic');
+
+INSERT INTO clients (name, surname, birth, member, subscription) VALUES ('Petr', 'Petrov', '1980-01-01', '2020-09-01', 'premium');
+
+INSERT INTO clients (name, surname, birth, member, subscription) VALUES ('Sidor', 'Sidorov', '1970-01-01', '2020-09-01', 'basic');
+
+SELECT * FROM clients
+```
+![](./images/постгрес_клиент_фитнес.png)
+
+#### Таблица с тренировками
+
+1. Создание таблицы для тренировок
+
+```sql
+CREATE TABLE trains (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    description VARCHAR(200),
+    duration TIMESTAMP,
+    difficulty INTEGER
+);
+```
+2. Добавление экземпляров и просмотр результата
+
+```sql
+INSERT INTO trains
+(name, description, duration, difficulty)
+VALUES
+('Train 1', 'Train 1 description', '2022-07-25 00:01:00', 1),
+('Train 2', 'Train 2 description', '2022-07-25 00:02:00', 2),
+('Train 3', 'Train 3 description', '2022-07-25 00:03:00', 3),
+('Train 4', 'Train 4 description', '2022-07-25 00:04:00', 4),
+('Train 5', 'Train 5 description', '2022-07-25 00:05:00', 5);
+
+SELECT * FROM trains
+```
+![](./images/постгрес_третировки.png)
+
+#### Таблица с посещением
+
+1. Создание таблицы для посещений
+
+```sql
+CREATE TABLE visits (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+
+    id_client INTEGER,
+    FOREIGN KEY (id_client) REFERENCES clients(id),
+
+    id_train INTEGER,
+    FOREIGN KEY (id_train) REFERENCES trains(id),
+
+    date_time date
+);
+```
+2. Добавление экземпляров и просмотр результата
+
+```sql
+INSERT INTO visits (name, id_client, id_train, date_time) VALUES ('Ivan', 1, 1, '2020-01-01');
+
+INSERT INTO visits (name, id_client, id_train, date_time) VALUES ('Petr', 2, 2, '2020-01-01');
+
+INSERT INTO visits (name, id_client, id_train, date_time) VALUES ('Sidor', 3, 3, '2020-01-01');
+
+SELECT * FROM visits
+```
+![](./images/постгрес_посещения.png)
