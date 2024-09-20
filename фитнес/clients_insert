@@ -1,0 +1,16 @@
+CREATE TABLE clients (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    surname VARCHAR(50),
+    birth date,
+    member date,
+    subscription VARCHAR(50)
+);
+
+INSERT INTO clients (name, surname, birth, member, subscription) VALUES ('Ivan', 'Ivanov', '1990-01-01', '2020-09-01', 'basic');
+
+INSERT INTO clients (name, surname, birth, member, subscription) VALUES ('Petr', 'Petrov', '1980-01-01', '2020-09-01', 'premium');
+
+INSERT INTO clients (name, surname, birth, member, subscription) VALUES ('Sidor', 'Sidorov', '1970-01-01', '2020-09-01', 'basic');
+
+SELECT * FROM clients

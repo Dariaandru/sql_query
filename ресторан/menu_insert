@@ -1,0 +1,8 @@
+
+INSERT INTO menu (name, description, price, category, image) VALUES ('salad', 'salad with meat', 100, 'salads', 'salad.jfif');
+
+INSERT INTO menu (name, description, price, category, image) VALUES ('pasta', 'pasta with meat', 200, 'pasta', 'pasta.jfif');
+
+INSERT INTO menu (name, description, price, category, image) VALUES ('soup', 'soup with meat', 300, 'soup', 'soup.jfif');
+
+SELECT * FROM menu

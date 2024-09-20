@@ -1,0 +1,9 @@
+
+
+INSERT INTO courses (name, description, credit_quantity, ststus) VALUES ('Математика', 'Математика', 3, 'В наличии');
+
+INSERT INTO courses (name, description, credit_quantity, ststus) VALUES ('Физика', 'Физика', 3, 'В наличии');
+
+INSERT INTO courses (name, description, credit_quantity, ststus) VALUES ('Химия', 'Химия', 3, 'В наличии');
+
+SELECT * FROM courses

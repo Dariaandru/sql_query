@@ -1,0 +1,17 @@
+-- CREATE TABLE orders (
+-- 	id SERIAL PRIMARY KEY,
+-- 	datetime TIMESTAMP,
+-- 	id_client INTEGER,
+-- 	FOREIGN KEY (id_client) REFERENCES client(id),
+-- 	status VARCHAR(30)
+-- )
+
+INSERT INTO orders (datetime, id_client, status) VALUES ('2020-01-01', 1, 'в обработке');
+
+INSERT INTO orders (datetime, id_client, status) VALUES ('2020-02-06', 2, 'в обработке');
+
+INSERT INTO orders (datetime, id_client, status) VALUES ('2020-03-08', 3, 'в обработке');
+
+SELECT * FROM orders
+
+INSERT INTO orders (datetime, id_client, status, comment) VALUES ('2020-01-01', 1, 'в обработке', 'комментарий');

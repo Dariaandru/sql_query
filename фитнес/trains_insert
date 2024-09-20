@@ -1,0 +1,12 @@
+
+
+INSERT INTO trains
+(name, description, duration, difficulty)
+VALUES
+('Train 1', 'Train 1 description', '2022-07-25 00:01:00', 1),
+('Train 2', 'Train 2 description', '2022-07-25 00:02:00', 2),
+('Train 3', 'Train 3 description', '2022-07-25 00:03:00', 3),
+('Train 4', 'Train 4 description', '2022-07-25 00:04:00', 4),
+('Train 5', 'Train 5 description', '2022-07-25 00:05:00', 5);
+
+SELECT * FROM trains

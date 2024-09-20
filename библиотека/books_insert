@@ -1,0 +1,9 @@
+INSERT INTO books (name, author, year, janr, status, cover) VALUES ('Война и мир', 'Лев Толстой', 1867, 'роман', 'В наличии', 'бумажная');
+
+INSERT INTO books (name, author, year, janr, status, cover) VALUES ('Белые ночи', 'Достоевский', 1848, 'повесть', 'Нет на складе', 'картонная');
+
+INSERT INTO books (name, author, year, janr, status, cover) VALUES ('Мастер и Маргарита', 'Булгаков', 1940, 'роман', 'В наличии', 'кожаная');
+
+
+SELECT * FROM books
+

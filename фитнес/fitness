@@ -1,0 +1,38 @@
+CREATE DATABASE fitness;
+
+CREATE TABLE clients (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    surname VARCHAR(50),
+    birth date,
+    member date,
+    subscription VARCHAR(50)
+);
+
+CREATE TABLE trains (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    description VARCHAR(200),
+    duration TIMESTAMP,
+    difficulty INTEGER
+);
+
+CREATE TABLE visits (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+
+    id_client INTEGER,
+    FOREIGN KEY (id_client) REFERENCES clients(id),
+
+    id_train INTEGER,
+    FOREIGN KEY (id_train) REFERENCES trains(id),
+
+    date_time date
+);
+
+ALTER TABLE clients
+ADD COLUMN image bytea;
+
+ALTER TABLE trains
+ADD COLUMN materials TEXT
+

@@ -1,0 +1,37 @@
+CREATE DATABASE education;
+
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    surname VARCHAR(50),
+    birth date,
+    enrollment date,
+    speciality VARCHAR(50)
+);
+
+CREATE TABLE courses (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    description VARCHAR(250),
+    credit_quantity INTEGER,
+    ststus VARCHAR(50)
+);
+
+CREATE TABLE enrollment (
+    id SERIAL PRIMARY KEY,
+
+    id_student INTEGER,
+    FOREIGN KEY (id_student) REFERENCES students(id),
+
+    id_course INTEGER,
+    FOREIGN KEY (id_course) REFERENCES courses(id),
+
+    mark INTEGER
+);
+
+ALTER TABLE students
+ADD COLUMN image bytea;
+
+ALTER TABLE courses
+ADD COLUMN program VARCHAR(250)
+

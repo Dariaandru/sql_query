@@ -1,0 +1,9 @@
+
+
+INSERT INTO enrollment (id_student, id_course, mark) VALUES (1, 1, 5);
+
+INSERT INTO enrollment (id_student, id_course, mark) VALUES (2, 2, 4);
+
+INSERT INTO enrollment (id_student, id_course, mark) VALUES (3, 3, 3);
+
+SELECT * FROM enrollment

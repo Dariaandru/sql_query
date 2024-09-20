@@ -1,0 +1,38 @@
+CREATE DATABASE restaurant;
+
+CREATE TABLE menu (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(50),
+	description VARCHAR(200),
+	price INTEGER,
+	category VARCHAR(50)
+);
+
+CREATE TABLE client (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(30),
+	surname VARCHAR(30)
+);
+
+CREATE TABLE orders (
+	id SERIAL PRIMARY KEY,
+	datetime TIMESTAMP,
+	id_client INTEGER,
+	FOREIGN KEY (id_client) REFERENCES client(id),
+	status VARCHAR(30)
+)
+
+CREATE TABLE positions (
+	id SERIAL PRIMARY KEY,
+	id_order INTEGER,
+	id_menu INTEGER,
+	FOREIGN KEY (id_order) REFERENCES orders(id),
+	FOREIGN KEY (id_menu) REFERENCES menu(id),
+	quantity INTEGER
+)
+
+ALTER TABLE menu
+ADD COLUMN image bytea
+
+ALTER TABLE orders
+ADD COLUMN comment VARCHAR(200)

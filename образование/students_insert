@@ -1,0 +1,9 @@
+
+
+INSERT INTO students (name, surname, birth, enrollment, speciality) VALUES ('Ivan', 'Ivanov', '1990-01-01', '2020-09-01', 'math');
+
+INSERT INTO students (name, surname, birth, enrollment, speciality) VALUES ('Petr', 'Petrov', '1970-01-01', '1990-09-01', 'geography');
+
+INSERT INTO students (name, surname, birth, enrollment, speciality) VALUES ('Sidor', 'Sidorov', '1930-07-08', '2000-09-01', 'physics');
+
+SELECT * FROM students

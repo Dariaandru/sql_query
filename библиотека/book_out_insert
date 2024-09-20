@@ -1,0 +1,9 @@
+INSERT INTO book_out (date_out, date_retutn) VALUES ('2020-01-01', '2020-01-03');
+
+INSERT INTO book_out (date_out, date_retutn) VALUES ('2020-02-06', '2020-02-19');
+
+INSERT INTO book_out (date_out, date_retutn) VALUES ('2020-03-08', '2020-03-16');
+
+
+SELECT * FROM book_out
+

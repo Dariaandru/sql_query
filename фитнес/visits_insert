@@ -1,0 +1,9 @@
+
+
+INSERT INTO visits (name, id_client, id_train, date_time) VALUES ('Ivan', 1, 1, '2020-01-01');
+
+INSERT INTO visits (name, id_client, id_train, date_time) VALUES ('Petr', 2, 2, '2020-01-01');
+
+INSERT INTO visits (name, id_client, id_train, date_time) VALUES ('Sidor', 3, 3, '2020-01-01');
+
+SELECT * FROM visits

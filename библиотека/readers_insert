@@ -1,0 +1,9 @@
+INSERT INTO readers (name, surname, birth, addres, phone) VALUES ('Ivan', 'Ivanov', '1990-01-01', 'Moscow', '89135553535');
+
+INSERT INTO readers (name, surname, birth, addres, phone) VALUES ('Petr', 'Petrov', '1990-01-01', 'Moscow', '89536783535');
+
+INSERT INTO readers (name, surname, birth, addres, phone) VALUES ('Sidor', 'Sidorov', '1990-01-01', 'Moscow', '89055553429');
+
+
+SELECT * FROM readers
+
