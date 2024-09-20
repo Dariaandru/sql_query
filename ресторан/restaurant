@@ -20,7 +20,7 @@ CREATE TABLE orders (
 	id_client INTEGER,
 	FOREIGN KEY (id_client) REFERENCES client(id),
 	status VARCHAR(30)
-)
+);
 
 CREATE TABLE positions (
 	id SERIAL PRIMARY KEY,
